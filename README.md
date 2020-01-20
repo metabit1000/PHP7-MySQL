@@ -1,2 +1,2 @@
 # PHP7-MySQL
-Código para repasar sintaxis y comunicación con una base de datos MySQL usando el lenguaje de backend PHP7.
+Code to review syntax and communication with a MySQL database using the PHP7 backend language.
