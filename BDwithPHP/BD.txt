@@ -1,0 +1,25 @@
+Para usar la base de datos mysql, se puede hacer a traves de: (WINDOWS)
+
+1. La herramienta phpmyAdmin -> Vamos a http://localhost/phpmyadmin y entramos con el usuario root y sin password. Para crear, vamos a base de datos
+y seguidamente le damos un nombre y ponemos cotejamiento (indica qué tipo de codificación queremos usar para los valores de los campos)
+
+2. La consola de windows "cmd" --> Vamos a C:\wamp64\bin\mysql\mysql8.0.18\bin y ponemos el comando: mysql -u root -p. Para crear, se usa el comando sql:
+create database alexdb; Para ver si ha sido creada correctamente, usamos el comando: show databases;
+
+COMANDOS SQL IMPORTANTES: 	
+
+- CREATE DATABASE nombreDB;
+- use nombreDB; //necesario indicar base de datos para crear tabla
+- CREATE TABLE nombreTabla(campo tipo,...); //ver tipos en el pdf
+- DROP TABLE nombreTabla;
+- DROP DATABASE nombreDB;
+- DESCRIBE nombreTabla; //permite ver info de tabla sin ir al phpmyadmin
+- ALTER TABLE nombreTabla DROP nombreCampo; //eliminar un campo
+- ALTER TABLE nombreTabla ADD COLUMN nombreCampo tipo; //Agregar un campo a una tabla, obviamente vacío.
+- INSERT INTO nombreTabla (nombreCampo1, nombreCampo2, ...) VALUES (valorCampo1, valorCampo2, ...); //introduce datos a la tabla
+- SELECT nombreCampo1,nombreCampo2, ... FROM nombreTabla; //para obtener datos de una tabla 
+
+
+¡Acordarse que se puede usar la consola de phpmyadmin o la de cmd!	
+
++ Phpmyadmin permite pasar un documento excel a una base de datos poniendolo en formato tabla desde "importar".
