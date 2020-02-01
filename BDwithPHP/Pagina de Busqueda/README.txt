@@ -1,0 +1,1 @@
+Se usa el metodo con procedimientos para la comunicación con la base de datos.
