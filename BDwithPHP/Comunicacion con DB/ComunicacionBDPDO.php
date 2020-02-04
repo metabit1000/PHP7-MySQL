@@ -14,7 +14,9 @@
 
 	try {
 		$link = new PDO("mysql:host=$db_address",$db_user,$db_password);
-		//echo "Conexion OK";
+
+		/* Esto seria mas correcto usar una clase conexion, pero de esta manera funciona igual y tampoco hay una diferencia muy grande. Mirar carpeta consultas preparadas.*/
+	
 	} catch (Exception $e) {
 		die('Error: ' . $e->GetMessage());
 	} finally{

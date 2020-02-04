@@ -6,7 +6,7 @@
 <body>
 
 <?php  
-	require("datos_conexion.php");
+	require("../datos_conexion.php");
 	
 	if (!($link = mysqli_connect($db_address, $db_user, $db_password))) { 
 		echo "Error conectando a la base de datos.<br>"; 

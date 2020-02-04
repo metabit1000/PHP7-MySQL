@@ -6,7 +6,7 @@
 <body>
 	
 <?php
-	require("../datos_conexion.php");
+	require("datos_conexion.php");
 	
 	/* Caracteres comodín para usar en SQL para pagina de busqueda: 
 		% -> Sustituye a una cadena de caracteres

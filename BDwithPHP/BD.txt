@@ -17,9 +17,13 @@ COMANDOS SQL IMPORTANTES:
 - ALTER TABLE nombreTabla DROP nombreCampo; //eliminar un campo
 - ALTER TABLE nombreTabla ADD COLUMN nombreCampo tipo; //Agregar un campo a una tabla, obviamente vacío.
 - INSERT INTO nombreTabla (nombreCampo1, nombreCampo2, ...) VALUES (valorCampo1, valorCampo2, ...); //introduce datos a la tabla
+- DELETE FROM nombreTabla WHERE (...); //Eliminar datos de la tabla
+- UPDATE nombreTabla SET campo=valor (...) WHERE campo=valor; //para actualizar sin tener que borrar fila de la tabla
 - SELECT nombreCampo1,nombreCampo2, ... FROM nombreTabla; //para obtener datos de una tabla 
 
 
 ¡Acordarse que se puede usar la consola de phpmyadmin o la de cmd!	
 
 + Phpmyadmin permite pasar un documento excel a una base de datos poniendolo en formato tabla desde "importar".
+
+Para iniciar en modo servidor, seria usar: php -S localhost:8000

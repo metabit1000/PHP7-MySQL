@@ -6,7 +6,7 @@
 <body>
 
 <?php
-	require("datos_conexion.php");
+	require("../datos_conexion.php");
 
 	$seccion = $_GET["seccion"]; //obtenemos los datos del formulario
 	$n_art = $_GET["n_art"];

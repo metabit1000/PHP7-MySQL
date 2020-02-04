@@ -8,7 +8,7 @@
 <?php  
 	/* Muy similar a hacerlo con procedimientos. En este caso, prepare() nos devuelve un objeto PDOStatement. */
 
-	require("../../datos_conexion.php");
+	require("../datos_conexion.php");
 
 	try {
 		$pais = $_GET["buscar"];
