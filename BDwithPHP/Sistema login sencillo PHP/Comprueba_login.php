@@ -18,8 +18,12 @@
 
 		$link = new PDO("mysql:host=$db_address;dbname=pruebas",$db_user,$db_password,$arrOptions);
 
+
 		$sql = "SELECT * FROM `usuarios` WHERE USUARIOS=:user AND PASSWORD=:pass";
 
+		
+		//$sql = "INSERT INTO `usuarios` (USUARIOS,PASSWORD) VALUES (:user,:pass)";
+	
 		$result = $link->prepare($sql);
 
 		$user = htmlentities(addslashes($_POST["user"]));
@@ -34,17 +38,38 @@
 
 		$result->execute();
 
-		if ($result->rowCount() > 0) { //usuario existe
+		if (isset($_POST["login"])) {
+			if ($result->rowCount() > 0) { //usuario existe
 			session_start();
 
 			$_SESSION["user"] = $_POST["user"];
 
 			header("location:Usuarios_registrados.php"); //NO nos vale esto a secas, no es seguro. Necesitamos usar sesiones (arriba)
+			}
+			else { 
+				header("location:Login.html"); //le redirijimos a la pagina de antes
+			}
 		}
-		else { 
-			header("location:Login.html"); //le redirijimos a la pagina de antes
+		else { //caso register
+			if ($result->rowCount() > 0) { //existe el usuario
+				header("location:Login.html");
+			}
+			else { //registro el nuevo usuario
+				$sql = "INSERT INTO `usuarios` (USUARIOS,PASSWORD) VALUES (:user,:pass)";
+				$result = $link->prepare($sql);
+				
+				$pass_cifrado = hash("sha256",$password);
+				
+				$result->bindValue(":user",$user);
+				$result->bindValue(":pass",$pass_cifrado);
+
+				$result->execute();
+
+				echo "Usuario registrado correctamente <br>";
+				echo "<a href='Login.html'>Volver</a>";
+			}
 		}
-	
+		
 	} catch (Exception $e) {
 		die('Error: ' . $e->GetMessage());
 	} finally{
