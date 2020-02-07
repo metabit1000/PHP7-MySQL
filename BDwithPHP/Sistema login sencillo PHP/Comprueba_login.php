@@ -34,11 +34,12 @@
 		Las usamos para que el usuario no pueda poner cosas raras o inyeccion SQL*/
 
 		$result->bindValue(":user",$user);
-		$result->bindValue(":pass",$password);
+		$result->bindValue(":pass",hash("sha256",$password));
 
 		$result->execute();
 
 		if (isset($_POST["login"])) {
+
 			if ($result->rowCount() > 0) { //usuario existe
 			session_start();
 
@@ -58,6 +59,7 @@
 				$sql = "INSERT INTO `usuarios` (USUARIOS,PASSWORD) VALUES (:user,:pass)";
 				$result = $link->prepare($sql);
 				
+				//Lo mas correcto seria usar un salt por si alguien consigue averiguar la contraseña
 				$pass_cifrado = hash("sha256",$password);
 				
 				$result->bindValue(":user",$user);
